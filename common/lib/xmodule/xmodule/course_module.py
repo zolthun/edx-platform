@@ -290,10 +290,8 @@ class DiscussionTopicMapping(Dict):
             print("jinder isInstance")
             for key in value:
                 print("jinder for key: ")
-                print(key)
                 if "id" in value[key].keys():
                     print("jinder: if id in keys: ")
-                    print(value[key].keys())
                     if not self._validate_topic_id_value(value[key]["id"]):
                         print("jinder: raising value error 1")
                         raise ValueError("The only special characters that are supported in the id key are underscore, hyphen, and period.")
