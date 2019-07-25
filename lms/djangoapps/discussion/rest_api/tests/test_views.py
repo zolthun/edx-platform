@@ -1928,7 +1928,7 @@ class CourseDiscussionSettingsAPIViewTest(APITestCase, UrlResetMixin, ModuleStor
             start=datetime.now()
         )
         discussion_topics = {
-            "Topic B": {"id": "Topic B"},
+            "Topic B": {"id": "Topic_B"},
         }
         config_course_cohorts(self.course, is_cohorted=True)
         config_course_discussions(
