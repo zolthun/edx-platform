@@ -468,8 +468,10 @@ class AdvancedSettingsValidationTest(StudioCourseTest):
         }
         json_input = json.dumps(inputs)
         self.advanced_settings.set('Discussion Topic Mapping', json_input)
+        advanced_setting_get = self.advanced_settings.get('Discussion Topic Mapping')
+        print(advanced_setting_get)
         self.assertEqual(
-            self.advanced_settings.get('Discussion Topic Mapping'),
+            advanced_setting_get,
             '{\n    "key": "value",\n    "key_2": "value_2"\n}'
         )
 
