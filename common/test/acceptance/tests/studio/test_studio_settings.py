@@ -463,8 +463,8 @@ class AdvancedSettingsValidationTest(StudioCourseTest):
         """
 
         inputs = {
-            "key": "value",
-            "key_2": "value_2"
+            "key": {"id": "value_1"},
+            "key_2": {"id": "value_2"}
         }
         json_input = json.dumps(inputs)
         self.advanced_settings.set('Discussion Topic Mapping', json_input)
