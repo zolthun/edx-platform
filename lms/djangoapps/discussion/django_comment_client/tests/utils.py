@@ -121,8 +121,7 @@ def topic_name_to_id(course, name):
     Given a discussion topic name, return an id for that name (includes
     course and url_name).
     """
-    for index in range(len(name)):
-        indexed_character = name[index]
+    for index, indexed_character in enumerate(name):
         if not (indexed_character.isalnum() or indexed_character == "-" or indexed_character == "_" or indexed_character == "."):
             name = name[:index] + "_" + name[index + 1:]
     return "{course}_{run}_{name}".format(

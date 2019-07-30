@@ -79,10 +79,8 @@ def get_course_by_id(course_key, depth=0):
     with modulestore().bulk_operations(course_key):
         course = modulestore().get_course(course_key, depth=depth)
     if course:
-        print("jinder: returning course")
         return course
     else:
-        print("jinder: returning HTTP404")
         raise Http404(u"Course not found: {}.".format(unicode(course_key)))
 
 
@@ -105,7 +103,6 @@ def get_course_with_access(user, action, course_key, depth=0, check_if_enrolled=
       be plugged in as additional callback checks for different actions.
     """
     course = get_course_by_id(course_key, depth)
-    print(course)
     check_course_access(course, user, action, check_if_enrolled, check_survey_complete)
     return course
 
@@ -138,10 +135,6 @@ def check_course_access(course, user, action, check_if_enrolled=False, check_sur
     check_survey_complete: If true, additionally verifies that the user has completed the survey.
     """
     # Allow staff full access to the course even if not enrolled
-    print("jinder: This is this course: yeeeeee" + str(course))
-    print("jinder: course dir:")
-    print(dir(course))
-    hello = course.id
     if has_access(user, 'staff', course.id):
         return
 
