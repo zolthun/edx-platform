@@ -275,12 +275,11 @@ class DiscussionTopicMapping(Dict):
     """
 
     _default = {}
-    
+
     def from_json(self, value):
         """
         Return python dict type. Performs validation on id key for each discussion topic
         """
-        print("jinder running from_json")
         if value is None:
             return None
         """
@@ -288,26 +287,18 @@ class DiscussionTopicMapping(Dict):
         each topic in dict has a key id and the id value only has valid characters
         """
         if isinstance(value, dict):
-            print("jinder isInstance")
             for key in value:
-                print("jinder for key: ")
                 if "id" in value[key].keys():
-                    print("jinder: if id in keys: ")
                     if not self._validate_topic_id_value(value[key]["id"]):
-                        print("jinder: raising value error 1")
                         raise ValueError("The only special characters that are supported in the id key are underscore, hyphen, and period.")
                 else:
-                    print("jinder: raising value error 2")
                     raise ValueError("All topics need a id key")
         else:
-            print("jinder: raising type error 3")
             raise TypeError('Value stored in a Dict must be None or a dict, found %s' % type(value))
-        print("jinder: returning value")
         return value
     enforce_type = from_json
 
     def _validate_topic_id_value(self, value):
-        print("jinder: in validate")
         if value.isalnum():
             return True
         elif not ''.join(filter(lambda x: not (x.isalnum() or x == "-" or x == "_" or x == "."), value)):
