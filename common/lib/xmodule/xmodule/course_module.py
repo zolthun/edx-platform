@@ -275,6 +275,7 @@ class DiscussionTopicMapping(Dict):
     """
 
     _default = {}
+    
     def from_json(self, value):
         """
         Return python dict type. Performs validation on id key for each discussion topic
