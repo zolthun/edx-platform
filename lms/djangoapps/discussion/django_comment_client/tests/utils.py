@@ -122,7 +122,10 @@ def topic_name_to_id(course, name):
     course and url_name).
     """
     for index, indexed_character in enumerate(name):
-        if not (indexed_character.isalnum() or indexed_character == "-" or indexed_character == "_" or indexed_character == "."):
+        if not (indexed_character.isalnum()
+                or indexed_character == "-"
+                or indexed_character == "_"
+                or indexed_character == "."):
             name = name[:index] + "_" + name[index + 1:]
     return "{course}_{run}_{name}".format(
         course=course.location.course,
