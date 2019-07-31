@@ -211,8 +211,8 @@ def get(request):
     token = strategy.session_get('partial_pipeline_token')
 
     if not token:
-            strategy.session_set('partial_pipeline_token', strategy.session_get('partial_pipeline_token_'))
-            token = strategy.session_get('partial_pipeline_token')
+        strategy.session_set('partial_pipeline_token', strategy.session_get('partial_pipeline_token_'))
+        token = strategy.session_get('partial_pipeline_token')
 
     partial_object = strategy.partial_load(token)
     pipeline_data = None
