@@ -268,12 +268,12 @@ urlpatterns += [
     url(r'^500$', handler500),
 ]
 
-if settings.FEATURES.get('ENABLE_API_DOCS'):
-    urlpatterns += [
-        url(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
-        url(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-        url(r'^api-docs/$', schema_view.with_ui('swagger', cache_timeout=0)),
-    ]
+# API docs.
+urlpatterns += [
+    url(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    url(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    url(r'^api-docs/$', schema_view.with_ui('swagger', cache_timeout=0)),
+]
 
 from openedx.core.djangoapps.plugins import constants as plugin_constants, plugin_urls
 urlpatterns.extend(plugin_urls.get_patterns(plugin_constants.ProjectType.CMS))
