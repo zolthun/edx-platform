@@ -6,7 +6,6 @@
 # This script is part of the feature toggle generator tool.
 
 pip install -r requirements/edx/paver.txt -r requirements/edx/testing.txt
-paver install_python_prereqs
 rm -Rf reports/*
 code_annotations static_find_annotations --config_file=$CODE_ANNOTATION_CONFIG_PATH --no_lint
 mkdir -p $CODE_ANNOTATION_OUTPUT_PATH
