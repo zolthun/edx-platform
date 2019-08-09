@@ -248,10 +248,8 @@ class Command(BaseCommand):
         Get all organizations for the programs.
         """
         organizations = defaultdict(list)
-        failure = False
-
         for program in programs.values():
             for org in program['authoring_organizations']:
                 org_cache_key = ORGANIZATION_PROGRAMS_CACHE_KEY_TPL.format(org_key=org['key'])
                 organizations[org_cache_key].append(program['uuid'])
-        return organizations, failure
+        return organizations

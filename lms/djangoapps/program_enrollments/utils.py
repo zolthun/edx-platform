@@ -17,11 +17,14 @@ log = logging.getLogger(__name__)
 class ProgramDoesNotExistException(Exception):
     pass
 
+
 class OrganizationDoesNotExistException(Exception):
     pass
 
+
 class ProviderDoesNotExistException(Exception):
     pass
+
 
 class ProviderConfigurationException(Exception):
     pass
