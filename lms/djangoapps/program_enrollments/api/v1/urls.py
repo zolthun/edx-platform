@@ -1,7 +1,6 @@
 """ Program Enrollments API v1 URLs. """
 from __future__ import absolute_import
 
-from django.conf import settings
 from django.conf.urls import url
 
 from lms.djangoapps.program_enrollments.api.v1.constants import PROGRAM_UUID_PATTERN
